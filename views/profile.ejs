@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <title>21 Savage Fan Site</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container profileContain">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-user">  Perfil</h1>
+          <strong>Email</strong>: <%= user.local.email %><br>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        <a href="/unlink/local" class="btn btn-default">Borrar cuenta</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+              <h2>Necesitas quien te traduzca? Pon un mensaje!</h2>
+              <% if (user.local.email) { %>
+                <form action="/messages" method="POST">
+                  <input type="text" value="<%= user.local.email %>" name="name" placeholder= "Nombre">
+                  <input type="text" placeholder="Mensaje" name="msg">
+                  <button type="submit">Someter</button>
+                </form>
+
+            </div>
+        </div>
+        <div class="col-sm-6">
+          <h3>Messages</h3>
+          <ul class="messages">
+          <% for(var i=0; i<messages.length; i++) {%>
+            <li class="message">
+              <span><%= messages[i].name %></span>
+              <span><%= messages[i].msg %></span>
+              <!-- <span><%= messages[i].thumbUp %></span> -->
+              <!-- <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span> -->
+              <!-- <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span> -->
+              <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+              <span>Comment:</span>
+              <form action="/comment" method="POST">
+                <input type="text" name="comment" placeholder= "Comment">
+                <button type="submit">Someter</button>
+              </form>
+
+            </li>
+          <% } %>
+          </ul>
+
+        </div>
+        <% } %>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>

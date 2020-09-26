@@ -1,0 +1,29 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  font-family: sans-serif;
+}
+img{
+  height: 200px;
+}
+body{
+  background-image: url("img/world.jpg");
+}
+.loginContain, .signupContain, .profileContain{
+  background-color: beige;
+}
+.loginh1, .signuph1{
+  padding-top: 20px;
+}
+.loginend, .signupend{
+  padding-bottom: 20px;
+}
+li{
+  padding: 10px;
+  background-color: gainsboro;
+  font-size: 2rem;
+}
+span{margin-left: 10px; margin-right: 20PX;}
+.fa-trash{
+  float: right;
+}
